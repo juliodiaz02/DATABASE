@@ -1,14 +1,14 @@
 const express = require('express');
-const cors = require('cors')
+const cors =require('cors');
 require('dotenv').config();
-const usersRouter = require('./routes/users');
+const usersRouter = require('./routes/users')
 
-class Server{
-    constructor(){
-        this.app = express();
-        this.port = process.env.PORT;
+class Server {
+    constructor() {
+        this.app = express();  
+        this.port = process.env.PORT;      
 
-        //http://localhost:3000/api/v1/users
+        // http://localhost:3000/api/v1/users
         this.basePath = '/api/v1';
 
         this.usersPath = `${this.basePath}/users`;
@@ -17,10 +17,9 @@ class Server{
         this.routes();
     }
 
-
 middlewares(){
     this.app.use(cors());
-    this.app.use(express.json());
+    this.app.use(express.json());  
 }
 
 routes() {
@@ -28,9 +27,10 @@ routes() {
 }
 
 listen() {
-    this.app.listen(this.port,() =>{
-        console.log("Listening on port " + this.port)
+    this.app.listen(this.port,() => {
+        console.log("Listenig on port " + this.port)
     })
+
 }
 }
 module.exports = Server;
