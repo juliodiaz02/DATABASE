@@ -1,9 +1,12 @@
 const {Router} = require('express');
-const{usersList, listUserByID, addUser} = require('../controllers/users');
+const{userslist, listUserByID, addUser, deleteUser, updateUser, signIn} = require('../controllers/users');
 const router = Router();
-// http://localhost:3000/api/v1/users/
-router.get('/', usersList);
+//localhost:3000/api/v1/users/
+router.get('/', userslist);
 router.get('/:id', listUserByID);
+router.post('/', signIn);
 router.put('/', addUser);
+router.patch('/:id', updateUser);
+router.delete('/:id', deleteUser);
 
 module.exports = router;
